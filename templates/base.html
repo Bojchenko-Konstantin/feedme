@@ -19,77 +19,7 @@
     <div class="container">
       {% include 'components/_navbar.html' %}
       <!-- Main body-->
-      <main>
-        {% block main %}
-        {% endblock main %}
-          <div class="col-3">
-            <!-- Sidebar-->
-            <div class="list-group">
-              <a href="#!" class="list-group-item list-group-item-action"
-                >Первая кнопка</a
-              >
-              <a href="#!" class="list-group-item list-group-item-action"
-                >Вторая кнопка</a
-              >
-              <a href="#!" class="list-group-item list-group-item-action"
-                >Третья кнопка</a
-              >
-              <a href="#!" class="list-group-item list-group-item-action"
-                >Четвертая кнопка</a
-              >
-              <a href="#!" class="list-group-item list-group-item-action"
-                >Пятая кнопка</a
-              >
-              <a href="#!" class="list-group-item list-group-item-action"
-                >Шестая кнопка</a
-              >
-            </div>
-          </div>
-          <!-- Posts-->
-          <div class="col-8">
-            <!-- Post-->
-            <div class="card text-center">
-              <div class="card-header">Категория статьи</div>
-              <div class="card-body">
-                <h5 class="card-title">Заголовок статьи</h5>
-                <p class="card-text">Краткое описание</p>
-                <a href="#!" class="btn btn-primary">Перейти куда нибудь</a>
-              </div>
-              <div class="card-footer text-muted">Дата поста</div>
-            </div>
-            <!-- Post-->
-            <div class="card text-center">
-              <div class="card-header">Категория статьи</div>
-              <div class="card-body">
-                <h5 class="card-title">Заголовок статьи</h5>
-                <p class="card-text">Краткое описание</p>
-                <a href="#!" class="btn btn-primary">Перейти куда нибудь</a>
-              </div>
-              <div class="card-footer text-muted">Дата поста</div>
-            </div>
-            <!-- Post-->
-            <div class="card text-center">
-              <div class="card-header">Категория статьи</div>
-              <div class="card-body">
-                <h5 class="card-title">Заголовок статьи</h5>
-                <p class="card-text">Краткое описание</p>
-                <a href="#!" class="btn btn-primary">Перейти куда нибудь</a>
-              </div>
-              <div class="card-footer text-muted">Дата поста</div>
-            </div>
-            <!-- Post-->
-            <div class="card text-center">
-              <div class="card-header">Категория статьи</div>
-              <div class="card-body">
-                <h5 class="card-title">Заголовок статьи</h5>
-                <p class="card-text">Краткое описание</p>
-                <a href="#!" class="btn btn-primary">Перейти куда нибудь</a>
-              </div>
-              <div class="card-footer text-muted">Дата поста</div>
-            </div>
-          </div>
-        </div>
-      </main>
+      <main>{% block main %} {% endblock main %}</main>
       <!-- Footer-->
       {% include 'components/_footer.html' %}
     </div>
