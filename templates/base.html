@@ -13,15 +13,15 @@
       integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
       crossorigin="anonymous"
     />
-    <title>FeedMe</title>
+    <title>{{ title }}</title>
   </head>
   <body>
     <div class="container">
       {% include 'components/_navbar.html' %}
       <!-- Main body-->
       <main>
-        <h2>FeedMe</h2>
-        <div class="d-flex justify-content-between">
+        {% block main %}
+        {% endblock main %}
           <div class="col-3">
             <!-- Sidebar-->
             <div class="list-group">
