@@ -1,10 +1,11 @@
+{% load static %}
 <header>
   <div class="container">
     <!--   Header-->
     <nav class="navbar navbar-expand-lg bg-light">
       <div class="container-fluid">
-        <a class="navbar-brand" href="#!">
-          <img src="#!" width="75" alt="" />
+        <a class="navbar-brand" href="{% url 'index' %}">
+          <img src="{% static 'image/fast_food.png' %}" width="75" alt="" />
         </a>
         <button
           class="navbar-toggler"
@@ -20,7 +21,10 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#!"
+              <a
+                class="nav-link active"
+                aria-current="page"
+                href="{% url 'index' %}"
                 >Главная</a
               >
             </li>
