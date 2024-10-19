@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from .models import Category, Post
+from django.db.models import F
 
 def index(request):
     """Функция представления для главной страницы"""
@@ -26,6 +27,7 @@ def category_list(request, pk):
 def post_detail(request, pk):
     """Детали поста - подробнее"""
     article = Post.objects.get(pk=pk)
+    Post.objects.filter(pk=pk).update(watched=F('watched') + 1)
     context = {
             "title": article.title,
             "post": article
