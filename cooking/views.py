@@ -28,9 +28,11 @@ def post_detail(request, pk):
     """Детали поста - подробнее"""
     article = Post.objects.get(pk=pk)
     Post.objects.filter(pk=pk).update(watched=F('watched') + 1)
+    ext_post = Post.objects.all().order_by('-watched')[:5]
     context = {
             "title": article.title,
-            "post": article
+            "post": article,
+            "ext_posts":ext_post
             }
     return render(request, "cooking/article_detail.html", context)
 

@@ -44,28 +44,24 @@
                 </div>
             </div>
             <!--  Recommendation-->
-            <div class="col-1"></div>
-            <div class="col-4">
-                <div class="card" style="width: 18rem;">
-                    <img class="card-img-top" src="https://www.raumplus.ru/upload/iblock/99e/Skoro-zdes-budet-foto.jpg" width="200" alt="">
-                    <div class="card-body"><h5 class="card-title">Блюдо</h5><a href="#!" class="btn btn-primary">Подробнее</a></div>
-                </div>
-                <div class="card" style="width: 18rem;">
-                    <img class="card-img-top" src="https://www.raumplus.ru/upload/iblock/99e/Skoro-zdes-budet-foto.jpg" width="200" alt="">
-                    <div class="card-body"><h5 class="card-title">Блюдо</h5><a href="#!" class="btn btn-primary">Подробнее</a></div>
-                </div>
-                <div class="card" style="width: 18rem;">
-                    <img class="card-img-top" src="https://www.raumplus.ru/upload/iblock/99e/Skoro-zdes-budet-foto.jpg" width="200" alt="">
-                    <div class="card-body"><h5 class="card-title">Блюдо</h5><a href="#!" class="btn btn-primary">Подробнее</a></div>
-                </div>
-                <div class="card" style="width: 18rem;">
-                    <img class="card-img-top" src="https://www.raumplus.ru/upload/iblock/99e/Skoro-zdes-budet-foto.jpg" width="200" alt="">
-                    <div class="card-body"><h5 class="card-title">Блюдо</h5><a href="#!" class="btn btn-primary">Подробнее</a></div>
-                </div>
-                <div class="card" style="width: 18rem;">
-                    <img class="card-img-top" src="https://www.raumplus.ru/upload/iblock/99e/Skoro-zdes-budet-foto.jpg" width="200" alt="">
-                    <div class="card-body"><h5 class="card-title">Блюдо</h5><a href="#!" class="btn btn-primary">Подробнее</a></div>
-                </div>
+        
+<div class="col-1"></div>
+<div class="col-4">
+    {% for ext in ext_posts %}
+        <div class="card" style="width: 18rem; margin-bottom: 15px;">
+            <div style="display: flex; justify-content: center; align-items: center; height: 100px; overflow: hidden; padding-top: 10px;"> <!-- Добавлен отступ сверху -->
+                {% if ext.photo %}
+                    <img src="{{ ext.photo.url }}" alt="" style="max-width: 100%; max-height: 100%; object-fit: cover;">
+                {% else %}
+                    <img src="https://www.raumplus.ru/upload/iblock/99e/Skoro-zdes-budet-foto.jpg" alt="" style="max-width: 100%; max-height: 100%; object-fit: cover;">
+                {% endif %}
             </div>
+            <div class="card-body" style="text-align: center;">
+                <h5 class="card-title">{{ ext.title }}</h5>
+                <a href="{{ ext.get_absolute_url }}" class="btn btn-primary">Подробнее</a>
             </div>
+        </div>
+    {% endfor %}
+</div>
+         </div>
  {% endblock main %}
