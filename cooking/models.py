@@ -1,6 +1,5 @@
 from django.db import models
-
-# Create your models here.
+from django.urls import reverse
 
 class Category(models.Model):
     """Категория новостей"""
@@ -12,6 +11,9 @@ class Category(models.Model):
     class Meta:
         verbose_name = "Category"
         verbose_name_plural = "Categories"
+
+    def get_absolute_url(self):
+        return reverse("category_list", kwargs={"pk": self.pk})
 
 class Post(models.Model):
     """Новостные посты"""
@@ -26,6 +28,9 @@ class Post(models.Model):
 
     def __str__(self):
         return self.title
+
+    def get_absolute_url(self):
+        return reverse("post_detail", kwargs={"pk": self.pk})
 
     class Meta:
         verbose_name = "Post"

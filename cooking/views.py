@@ -23,4 +23,12 @@ def category_list(request, pk):
             }
     return render(request, "cooking/index.html", context)
 
+def post_detail(request, pk):
+    """Детали поста - подробнее"""
+    article = Post.objects.get(pk=pk)
+    context = {
+            "title": article.title,
+            "post": article
+            }
+    return render(request, "cooking/article_detail.html", context)
 
