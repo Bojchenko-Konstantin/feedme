@@ -1,6 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import Category, Post
 from django.db.models import F
+from .forms import PostAddForm
 
 def index(request):
     """Функция представления для главной страницы"""
@@ -36,3 +37,22 @@ def post_detail(request, pk):
             }
     return render(request, "cooking/article_detail.html", context)
 
+def add_post(request):
+    """Добавление поста пользователем на сайте, в обход админки"""
+    if request.method == "POST":
+        form = PostAddForm(request.POST, request.FILES)
+        if form.is_valid():
+            post = Post.objects.create(**form.cleaned_data)
+            post.save()
+            return redirect('post_detail', post.pk)
+    else:
+        form = PostAddForm()
+
+    context = {
+            "form": form,
+            "title": "Добавить статью"
+            }
+    return render(request, "cooking/article_add_form.html", context)
+
+        
+    

@@ -1,8 +1,8 @@
 {% load static %}
 <header>
-  <div class="container">
-    <!--   Header-->
-    <nav class="navbar navbar-expand-lg bg-light">
+  <div class="container-fluid"> <!-- Изменено на container-fluid -->
+    <!-- Header -->
+    <nav class="navbar navbar-expand-lg bg-white"> <!-- Изменено на bg-white -->
       <div class="container-fluid">
         <a class="navbar-brand" href="{% url 'index' %}">
           <img src="{% static 'image/fast_food.png' %}" width="75" alt="" />
@@ -43,7 +43,7 @@
               </button>
             </form>
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <!--  Users-->
+              <!-- Users -->
               <li class="nav-item dropdown">
                 <a
                   class="nav-link dropdown-toggle"
@@ -60,7 +60,7 @@
                     <a class="dropdown-item" href="#!">Моя страница</a>
                   </li>
                   <li>
-                    <a class="dropdown-item" href="#!">Добавить статью</a>
+                      <a class="dropdown-item" href="{% url 'add' %}">Добавить статью</a>
                   </li>
                   <li><hr class="dropdown-divider" /></li>
                   <li><a class="dropdown-item" href="#!">Выйти</a></li>

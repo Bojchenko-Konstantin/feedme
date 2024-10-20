@@ -1,9 +1,35 @@
-<div class="card text-center">
-  <div class="card-body">
-    <h5></h5>
-    <h5 class="card-title">{{ post }}</h5>
+<div class="card mb-3" style="max-width: 800px; margin: auto; padding: 10px;">
+  <div
+    style="
+      width: 100%;
+      height: 400px;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 5px; /* Отступы по краям */
+    "
+  >
+    {% if post.photo %}
+    <img
+      src="{{ post.photo.url }}"
+      style="width: 100%; height: 100%; object-fit: cover;" /* Изменено на cover для полного заполнения */
+      alt=""
+    />
+    {% else %}
+    <img
+      src="https://www.raumplus.ru/upload/iblock/99e/Skoro-zdes-budет-foto.jpg"
+      style="width: 100%; height: 100%; object-fit: cover;" /* Изменено на cover для полного заполнения */
+      alt=""
+    />
+    {% endif %}
+  </div>
+  <div class="card-body" style="text-align: center">
+    <h5 class="card-title">{{ post.title }}</h5>
     <p class="card-text">{{ post.content | truncatewords:20 }}</p>
     <a href="{{ post.get_absolute_url }}" class="btn btn-primary">Подробнее</a>
+    <p class="card-text">
+      <small class="text-muted">{{ post.created_at }}</small>
+    </p>
   </div>
-  <div class="card-footer text-muted">{{ post.created_at }}</div>
 </div>
