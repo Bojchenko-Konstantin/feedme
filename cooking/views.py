@@ -61,7 +61,7 @@ def user_login(request):
     """Аутентификация пользователя"""
     if request.method == "POST":
         form = LoginForm(data=request.POST)
-        if form.is_valid:
+        if form.is_valid():
             user = form.get_user()
             login(request, user)
             return redirect("index")
