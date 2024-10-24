@@ -21,7 +21,11 @@
     <div class="container">
       {% include 'components/_navbar.html' %}
       <!-- Main body-->
-      <main>{% block main %} {% endblock main %}</main>
+      <main>
+        {% include 'components/_messages.html' %}
+        {% block main %}
+        {% endblock main %}
+      </main>
       <!-- Footer-->
       {% include 'components/_footer.html' %}
     </div>

@@ -4,7 +4,7 @@ from .models import Category, Post
 from django.db.models import F
 from .forms import PostAddForm, LoginForm, RegistrationForm
 from django.contrib.auth import login, logout
-
+from django.contrib import messages
 
 def index(request):
     """Функция представления для главной страницы"""
@@ -64,6 +64,7 @@ def user_login(request):
         if form.is_valid():
             user = form.get_user()
             login(request, user)
+            messages.success(request, "Аутентификация прошла успешно")
             return redirect("index")
     else:
         form = LoginForm()
