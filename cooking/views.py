@@ -32,7 +32,7 @@ def post_detail(request, pk):
     """Детали поста - подробнее"""
     article = Post.objects.get(pk=pk)
     Post.objects.filter(pk=pk).update(watched=F('watched') + 1)
-    ext_post = Post.objects.all().order_by('-watched')[:5]
+    ext_post = Post.objects.all().exclude(pk=pk).order_by('-watched')
     context = {
             "title": article.title,
             "post": article,
